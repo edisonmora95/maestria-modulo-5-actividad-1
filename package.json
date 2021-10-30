@@ -1,0 +1,26 @@
+{
+  "name": "actividad-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edisonmora95/maestria-modulo-5-actividad-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edisonmora95/maestria-modulo-5-actividad-1/issues"
+  },
+  "homepage": "https://github.com/edisonmora95/maestria-modulo-5-actividad-1#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0"
+  }
+}
