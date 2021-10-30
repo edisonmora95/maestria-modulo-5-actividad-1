@@ -9,12 +9,16 @@ const employees = require("../data/employees.json");
  */
 const getAll = (req, res, next) => {
   try {
-    const { page, user } = req.query;
+    const { page, user, badges } = req.query;
     const limit = 1;
 
     let data = employees;
     if (!!user) {
       data = data.filter((x) => x.privileges === "user");
+    }
+
+    if (badges) {
+      data = data.filter((x) => x.badges.includes(badges));
     }
 
     if (page) {
