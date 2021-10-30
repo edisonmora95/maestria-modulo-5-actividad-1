@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "026c6a7e-5b08-4a58-80b7-d8f46b70eb1b",
+		"name": "Maestria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/employees?page=1&user=true&badges=black",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "user",
+							"value": "true"
+						},
+						{
+							"key": "badges",
+							"value": "black"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Oldest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/employees/oldest",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						"oldest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/employees/sue",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						"sue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add One",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Edison\",\r\n    \"age\": 26,\r\n    \"phone\": {\r\n        \"personal\": \"992556793\"\r\n    },\r\n    \"privileges\": \"user\",\r\n    \"favorites\": {\r\n        \"artist\": \"Green Day\"\r\n    },\r\n    \"finished\": [5, 7],\r\n    \"badges\": [\"blue\"],\r\n    \"points\": [\r\n        {\r\n            \"points\": 10,\r\n            \"bonus\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000"
+		}
+	]
+}
