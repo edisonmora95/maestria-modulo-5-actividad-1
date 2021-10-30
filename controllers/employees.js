@@ -9,10 +9,14 @@ const employees = require("../data/employees.json");
  */
 const getAll = (req, res, next) => {
   try {
-    const { page } = req.query;
+    const { page, user } = req.query;
     const limit = 1;
 
     let data = employees;
+    if (!!user) {
+      data = data.filter((x) => x.privileges === "user");
+    }
+
     if (page) {
       const start = 2 * (page - 1);
       const end = (2 * (page - 1)) + limit + 1;
