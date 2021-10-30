@@ -10,7 +10,17 @@ const employees = require("../data/employees.json");
  */
 const getAll = (req, res, next) => {
   try {
-    const data = employees;
+    const { page } = req.query;
+    const limit = 1;
+
+    console.log("page", page);
+
+    let data = employees;
+    if (page) {
+      const start = 2 * (page - 1);
+      const end = (2 * (page - 1)) + limit + 1;
+      data = data.slice(start, end);
+    }
 
     return res.status(200).send({
       data,
