@@ -67,6 +67,37 @@ const getOldest = (req, res, next) => {
  * @param {Response} res
  * @param {NextFunction} next
  */
+ const getByName = (req, res, next) => {
+  try {
+    const { name } = req.params;
+    let data = employees;
+
+    const result = data.find((x) => x.name.toLowerCase() === name.toLowerCase());
+
+    if (!result) {
+      return res.status(404).send({
+        code: "not_found",
+        message: "Employeee not found",
+      });
+    }
+
+    return res.status(200).send({
+      data: result,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error,
+    });
+  }
+};
+
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ */
 const addOne = (req, res, next) => {
   try {
     const {
@@ -108,5 +139,6 @@ const addOne = (req, res, next) => {
 module.exports = {
   getAll,
   getOldest,
+  getByName,
   addOne,
 };
