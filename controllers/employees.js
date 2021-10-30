@@ -58,7 +58,51 @@ const getOldest = (req, res, next) => {
   }
 };
 
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ */
+const addOne = (req, res, next) => {
+  try {
+    const {
+      name,
+      age,
+      phone,
+      privileges,
+      favorites,
+      finished,
+      badges,
+      points,
+    } = req.body;
+
+    const employee = {
+      name,
+      age,
+      phone,
+      privileges,
+      favorites,
+      finished,
+      badges,
+      points,
+    };
+
+    employees.push(employee);
+
+    return res.status(200).send({
+      data: employee,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error,
+    });
+  }
+};
+
 module.exports = {
   getAll,
   getOldest,
+  addOne,
 };
